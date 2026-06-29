@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+  <div>
+    <div>
+      <div>
+          <!-- Форма для добавления новой книги -->
+        {% include "partial_create_book_form.html" %}
+        <!-- Таблица книг -->
+        <table>
+          <thead id="table-head">
+            <tr>
+            <!-- Заголовки столбцов таблицы -->
+              <!-- Заголовок номера книги -->
+              <th scope="col" style="width: 10%">
+                  <small>
+                    Num.
+                  </small>
+              </th>
+              <!-- Заголовок названия книги -->
+              <th scope="col" style="width: 11%">
+                  <small>
+                    Author
+                  </small>
+              </th>
+              <!-- Заголовок статуса книги -->
+              <th scope="col" style="width: 16%">
+                  <small>
+                    Action
+                  </small>
+              </th>
+            </tr>
+            </thead>
+          <!-- Список книг -->
+          <tbody id="book-list">
+          {% include 'partial_book_list.html' %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
