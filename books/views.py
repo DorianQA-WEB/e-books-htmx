@@ -8,10 +8,11 @@ from .models import Book
 @require_http_methods(['GET'])
 def book_list(request):
     book_list = Book.objects.all()
+    form = BookCreateForm(auto_id=False)
     return render(
         request,
         'base.html',
-        {'book_list': book_list}
+        {'book_list': book_list, 'form': form}
     )
 
 @require_http_methods(['POST'])

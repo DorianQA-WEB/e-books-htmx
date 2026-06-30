@@ -1,4 +1,7 @@
-                    <form>
+                    <form hx-post="{% url 'create_book' %}"
+                          hx-target="#book-list"
+                          hx-swap="beforeend"
+                          hx-on:htmx:after-request="if(event.detail.xhr.status === 200) this.reset()">
                         <div>
                             <div>
                                 {{ form.title }}

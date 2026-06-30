@@ -34,3 +34,19 @@ class BookCreateForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ["title", "author", "price"]
+
+
+class BookEditForm(BookCreateForm):
+    title = forms.CharField(
+        required=False,
+        widget=forms.TextInput(),
+    )
+    author = forms.CharField(
+        required=False,
+        widget=forms.TextInput(),
+    )
+    price = forms.IntegerField(
+        required=False,
+        widget=forms.NumberInput(),
+        min_value=0,
+    )
