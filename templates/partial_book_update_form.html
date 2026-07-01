@@ -30,11 +30,18 @@
                                 <!--  Ячейка кнопок действия -->
                                 <td>
                                     <!-- Кнопка "Save" -->
-                                    <button>
+                                    <button class="svcnbtn"
+                                            hx-post="{% url 'update_book_details' book.id %}"
+                                            hx-target="closest tr"
+                                            hx-swap="outerHTML"
+                                            hx-include="closest tr">
                                         Save
                                     </button>
                                     <!-- Кнопка "Cancel" -->
-                                    <button>
+                                    <button class="svcnbtn"
+                                            hx-get="{% url 'book_detail' book.id %}"
+                                            hx-target="closest tr"
+                                            hr-swap="outerHTML">
                                         Cancel
                                     </button>
                                 </td>

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponse
 from django.views.decorators.http import require_http_methods
 
-from .forms import BookCreateForm
+from .forms import BookCreateForm, BookEditForm
 from .models import Book
 
 @require_http_methods(['GET'])
@@ -23,4 +23,27 @@ def create_book(request):
     return render(request,
                   'partial_book_detail.html',
                   {'book': book})
-    
+
+def update_book_details(request, pk):
+    book = Book.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = BookCreateForm(request.POST, instance=book)
+        if form.is_valid():
+            return render(request,
+                          'partial_book_detail.html',
+                          {'book': book}
+                          )
+    else:
+        form = BookEditForm(instance=book)
+    return render(request,
+                  'partial_book_edit.html',
+                  {'form': form, 'book': book}
+                  )
+
+@require_http_methods(['GET'])
+def book_detail(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    return render(request,
+                  'partial_book_detail.html',
+                  {'book': book}
+                  )
