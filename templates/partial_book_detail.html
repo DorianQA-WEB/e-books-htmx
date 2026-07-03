@@ -32,7 +32,11 @@
                     Edit
                   </button>
                   <!-- Кнопка "Delete" -->
-                  <button class="disbtn">
+                  <button class="disbtn"
+                          hx-delete="{% url 'delete_book' book.id %}"
+                          hx-target="closest tr"
+                          hx-swap="outerHTML"
+                          hx-confirm="Вы действительно хотите удалить книгу?">
                     Delete
                   </button>
                 </td>

@@ -27,7 +27,7 @@ def create_book(request):
 def update_book_details(request, pk):
     book = Book.objects.get(pk=pk)
     if request.method == 'POST':
-        form = BookCreateForm(request.POST, instance=book)
+        form = BookEditForm(request.POST, instance=book)
         if form.is_valid():
             return render(request,
                           'partial_book_detail.html',
@@ -36,7 +36,7 @@ def update_book_details(request, pk):
     else:
         form = BookEditForm(instance=book)
     return render(request,
-                  'partial_book_edit.html',
+                  'partial_book_update_form.html',
                   {'form': form, 'book': book}
                   )
 
@@ -47,3 +47,11 @@ def book_detail(request, pk):
                   'partial_book_detail.html',
                   {'book': book}
                   )
+
+@require_http_methods(['DELETE'])
+def delete_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    book.delete()
+    return HttpResponse()
+
+

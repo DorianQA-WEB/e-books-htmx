@@ -22,15 +22,34 @@
                   </small>
               </th>
               <!-- Заголовок названия книги -->
-              <th scope="col" style="width: 11%">
+              <th scope="col" style="width:26%">
+                  <small>
+                      Title
+                  </small>
+              </th>
+              <!-- Заголовок автора книги -->
+              <th scope="col" style="width: 26%">
                   <small>
                     Author
                   </small>
               </th>
+              <!-- Заголовок цены книги -->
+              <th scope="col" style="width: 11%">
+                  <small>
+                      Price
+                  </small>
+              </th>
+
               <!-- Заголовок статуса книги -->
+              <th scope="col" style="width: 11%">
+                  <small>
+                      Status
+                  </small>
+              </th>
+              <!-- Заголовок кнопок действия -->
               <th scope="col" style="width: 16%">
                   <small>
-                    Action
+                    Actions
                   </small>
               </th>
             </tr>
@@ -43,23 +62,24 @@
       </div>
     </div>
   </div>
-  <script src="https://unpkg.com/htmx.org@2.0.7"></script>
-  <script>
-      function cngElementAttr (cls, atr, val) {
-            for (const elmt of document.getElementsByClassName(cls)) {
-                elmt[atr] = val;
+        <script src="https://unpkg.com/htmx.org@2.0.7"></script>
+        <script>
+            function cngElementsAttr (cls, atr, val) {
+                for (const elmt of document.getElementsByClassName(cls)) {
+                    elmt[atr] = val;
                 }
             }
-      document.getElementById('book-list').addEventListener('htmx:afterRequest', (event) => {
-      const eltClsList = event.detail.requestConfig.elt.classList;
-      const status = event.detail.xhr.status;
-      if (eltClsList.contains('editbtn') && status === 200) {
-            cngElementAttr('disbtn', 'disabled', true);
-            }
-      if (eltClsList.contains('svcnbtn') && status === 200) {
-            cngElementAttr('disbtn', 'disabled', false);
-            }
-      });
-  </script>
+
+            document.getElementById('book-list').addEventListener('htmx:afterRequest', (event) => {
+                const eltClsList = event.detail.requestConfig.elt.classList;
+                const status = event.detail.xhr.status;
+                if (eltClsList.contains('editbtn') && status === 200) {
+                    cngElementsAttr('disbtn', 'disabled', true);
+                }
+                if (eltClsList.contains('svcnbtn') && status === 200) {
+                    cngElementsAttr('disbtn', 'disabled', false);
+                }
+            });
+        </script>
 </body>
 </html>
