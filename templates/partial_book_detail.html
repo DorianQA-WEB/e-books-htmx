@@ -18,7 +18,10 @@
                 <!-- Ячейка состояния -->
                 <td>
                   <!-- Кнопка "Read/Unread" -->
-                  <button class="disbtn">
+                  <button class="disbtn"
+                          hx-path="{% url 'update_book_status' book.id %}"
+                          hx-target="closest tr"
+                          hx-swap="outerHTML">
                     {% if book.read %}Read{% else %}Unread{% endif %}
                   </button>
                 </td>
