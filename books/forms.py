@@ -8,7 +8,7 @@ class BookCreateForm(forms.ModelForm):
         required=False,
         widget=forms.TextInput(
             attrs={
-                "class": "disbtn",
+                "class": "disbtn form-control",
                 "placeholder": "Title",
             }
         ),
@@ -16,7 +16,7 @@ class BookCreateForm(forms.ModelForm):
     author = forms.CharField(
         required=False,
         widget=forms.TextInput(
-            attrs={"class": "disbtn",
+            attrs={"class": "disbtn from-control",
             "placeholder": "Author",
             }
         ),
@@ -25,7 +25,7 @@ class BookCreateForm(forms.ModelForm):
         required=False,
         widget=forms.NumberInput(
             attrs={
-                "class": "disbtn",
+                "class": "disbtn form-control",
                 "placeholder": "Price",
             }
         ),
@@ -39,14 +39,20 @@ class BookCreateForm(forms.ModelForm):
 class BookEditForm(BookCreateForm):
     title = forms.CharField(
         required=False,
-        widget=forms.TextInput(),
+        widget=forms.TextInput(
+            attrs={"class": "form-control"}
+        ),
     )
     author = forms.CharField(
         required=False,
-        widget=forms.TextInput(),
+        widget=forms.TextInput(
+            attrs={"class": "form-control"}
+        ),
     )
     price = forms.IntegerField(
         required=False,
-        widget=forms.NumberInput(),
+        widget=forms.NumberInput(
+            attrs={"class": "form-control"}
+        ),
         min_value=0,
     )

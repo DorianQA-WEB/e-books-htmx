@@ -1,6 +1,11 @@
 from django.urls import path
 
-from .views import book_list, create_book, update_book_details, book_detail, delete_book, update_book_status
+from .views import (book_list, create_book,
+                    update_book_details,
+                    book_detail,
+                    delete_book,
+                    update_book_status,
+                    book_list_sort)
 
 urlpatterns = [
     path('',
@@ -25,4 +30,8 @@ urlpatterns = [
     path('update_book_status/<int:pk>/',
          update_book_status,
          name='update_book_status'),
+    path('book_list_sort/<filter>/<direction>/',
+         book_list_sort,
+         name='book_list_sort'
+         ),
 ]

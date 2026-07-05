@@ -58,6 +58,16 @@ def update_book_status(request, pk):
                   {'book': book}
                   )
 
+@require_http_methods(['GET'])
+def book_list_sort(request, filter, direction):
+    if direction == 'descend':
+        filter = '-' + filter
+    book_list = Book.objects.order_by(filter)
+    return render(
+        request,
+        'partial_book_list.html',
+        {'book_list': book_list}
+    )
 
 @require_http_methods(['DELETE'])
 def delete_book(request, pk):
