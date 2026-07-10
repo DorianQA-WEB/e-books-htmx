@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import Book
+from django.utils.translation import gettext_lazy as _
 
 
 class BookCreateForm(forms.ModelForm):
@@ -9,7 +10,8 @@ class BookCreateForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 "class": "disbtn form-control",
-                "placeholder": "Title",
+                "placeholder": _("Title"),
+
             }
         ),
     )
@@ -17,7 +19,7 @@ class BookCreateForm(forms.ModelForm):
         required=False,
         widget=forms.TextInput(
             attrs={"class": "disbtn from-control",
-            "placeholder": "Author",
+            "placeholder": _("Author"),
             }
         ),
     )
@@ -26,7 +28,7 @@ class BookCreateForm(forms.ModelForm):
         widget=forms.NumberInput(
             attrs={
                 "class": "disbtn form-control",
-                "placeholder": "Price",
+                "placeholder": _("Price"),
             }
         ),
     )

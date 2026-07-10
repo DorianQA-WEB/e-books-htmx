@@ -2,7 +2,7 @@
 
 # models.py
 from django.db import models
-
+from django.utils.translation import gettext_lazy as _
 
 class Book(models.Model):
     """
@@ -20,19 +20,23 @@ class Book(models.Model):
     """
     title = models.CharField(
         max_length=200,
-        blank=True
+        blank=True,
+        verbose_name=_('Title')
     )
     author = models.CharField(
         max_length=200,
-        blank=True
+        blank=True,
+        verbose_name=_('Author')
     )
     price = models.PositiveIntegerField(
         blank=True,
-        null=True
+        null=True,
+        verbose_name=_('Price')
     )
     read = models.BooleanField(
         default=False,
-        blank=True
+        blank=True,
+        verbose_name=_('Read')
     )
 
     def __str__(self):
