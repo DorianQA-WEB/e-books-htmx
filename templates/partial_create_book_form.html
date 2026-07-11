@@ -1,3 +1,4 @@
+{% load i18n %}
                     <form class="form-inline"
                           hx-post="{% url 'create_book' %}"
                           hx-target="#book-list"
@@ -18,7 +19,7 @@
 
                             <div class="col">
                                 <!-- Кнопка "Add book" -->
-                                <button type="submit" class="disbtn">Add book</button>
+                                <button type="submit" class="disbtn">{% trans "Add book" %}</button>
                             </div>
                         </div>
                     </form>
