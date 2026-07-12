@@ -21,6 +21,10 @@
         {% include "partial_create_book_form.html" %}
         <!-- Таблица книг -->
         <table class="table table-bordered mt-5">
+            {% trans "id" as id %}{% trans "title" as title %}
+            {% trans "author" as author %}{% trans "price" as price %}
+            {% "read" as read %}{% trans "ascend" as ascend %}
+            {% trans "descend" as descend %}
           <thead id="table-head">
             <tr>
             <!-- Заголовки столбцов таблицы -->

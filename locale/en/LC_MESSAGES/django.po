@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-10 16:36+0500\n"
+"POT-Creation-Date: 2026-07-12 22:15+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\django_htmx\settings.py:115
+#: .\django_htmx\settings.py:116
 msgid "English"
 msgstr "Английский"
 
-#: .\django_htmx\settings.py:116
+#: .\django_htmx\settings.py:117
 msgid "Russian"
 msgstr "Русский"
 
@@ -30,27 +30,51 @@ msgstr "Русский"
 msgid "Books"
 msgstr ""
 
-#: .\templates\base.html:30
+#: .\templates\base.html:24
+msgid "id"
+msgstr ""
+
+#: .\templates\base.html:24
+msgid "title"
+msgstr ""
+
+#: .\templates\base.html:25
+msgid "author"
+msgstr ""
+
+#: .\templates\base.html:25
+msgid "price"
+msgstr ""
+
+#: .\templates\base.html:26
+msgid "ascend"
+msgstr ""
+
+#: .\templates\base.html:27
+msgid "descend"
+msgstr ""
+
+#: .\templates\base.html:34
 msgid "No."
 msgstr ""
 
-#: .\templates\base.html:49
+#: .\templates\base.html:53
 msgid "Title"
 msgstr ""
 
-#: .\templates\base.html:68
+#: .\templates\base.html:72
 msgid "Author"
 msgstr ""
 
-#: .\templates\base.html:86
+#: .\templates\base.html:90
 msgid "Price ($)"
 msgstr ""
 
-#: .\templates\base.html:105
+#: .\templates\base.html:109
 msgid "Status"
 msgstr ""
 
-#: .\templates\base.html:123
+#: .\templates\base.html:127
 msgid "Actions"
 msgstr ""
 

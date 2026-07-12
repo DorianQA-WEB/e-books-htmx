@@ -8,15 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-10 16:32+0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-07-12 22:15+0500\n"
+"PO-Revision-Date: 2026-07-12 21:55+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.3\n"
 
 #: .\books\forms.py:13 .\books\models.py:24
 msgid "Title"
@@ -32,4 +33,52 @@ msgstr ""
 
 #: .\books\models.py:39
 msgid "Read"
+msgstr ""
+
+#: .\books\urls.py:16
+msgid "create_book/"
+msgstr ""
+
+#: .\books\urls.py:20
+msgid "update_book_details/<int:pk>/"
+msgstr ""
+
+#: .\books\urls.py:24
+msgid "book_detail/<int:pk>/"
+msgstr ""
+
+#: .\books\urls.py:28
+msgid "delete_book/<int:pk>/"
+msgstr ""
+
+#: .\books\urls.py:31
+msgid "update_book_status/<int:pk>/"
+msgstr ""
+
+#: .\books\urls.py:34
+msgid "book_list_sort/<filter>/<direction>/"
+msgstr ""
+
+#: .\books\views.py:108
+msgid "id"
+msgstr ""
+
+#: .\books\views.py:109
+msgid "title"
+msgstr ""
+
+#: .\books\views.py:110
+msgid "author"
+msgstr ""
+
+#: .\books\views.py:111
+msgid "price"
+msgstr ""
+
+#: .\books\views.py:112
+msgid "read"
+msgstr ""
+
+#: .\books\views.py:115
+msgid "descend"
 msgstr ""

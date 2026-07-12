@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponse
 from django.views.decorators.http import require_http_methods
-
+from django.utils.translation import gettext_lazy as _
 from .forms import BookCreateForm, BookEditForm
 from .models import Book
 
@@ -104,9 +104,20 @@ def update_book_status(request, pk):
 
 @require_http_methods(['GET'])
 def book_list_sort(request, filter, direction):
-    if direction == 'descend':
-        filter = '-' + filter
-    book_list = Book.objects.order_by(filter)
+    filter_dict = {
+        _('id'): 'pk',
+        _('title'): 'title',
+        _('author'): 'author',
+        _('price'): 'price',
+        _('read'): 'read',
+    }
+    if filter in filter_dict:
+        if direction == _('descend'):
+            book_list = Book.objects.order_by('-' + filter_dict[filter])
+        else:
+            book_list = Book.objects.order_by(filter_dict[filter])
+    else:
+        book_list = Book.objects.all()
     return render(
         request,
         'partial_book_list.html',
