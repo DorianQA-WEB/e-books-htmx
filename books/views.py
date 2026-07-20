@@ -4,6 +4,8 @@ from django.views.decorators.http import require_http_methods
 from django.utils.translation import gettext_lazy as _
 from .forms import BookCreateForm, BookEditForm
 from .models import Book
+from django.core.cache import cache
+
 
 @require_http_methods(['GET'])
 def book_list(request):
@@ -19,7 +21,10 @@ def book_list(request):
     Returns:
         HttpResponse: Отображает шаблон `base.html` со списком книг и формой.
     """
-    book_list = Book.objects.all()
+    book_list = cache.get('cached_book_list')
+    if not book_list:
+        book_list = Book.objects.all()
+        cache.set('cached_book_list', book_list,)
     form = BookCreateForm(auto_id=False)
     return render(
         request,
