@@ -21,10 +21,7 @@ def book_list(request):
     Returns:
         HttpResponse: Отображает шаблон `base.html` со списком книг и формой.
     """
-    book_list = cache.get('cached_book_list')
-    if not book_list:
-        book_list = Book.objects.all()
-        cache.set('cached_book_list', book_list,)
+    book_list = cache.get_or_set('cached_book_list', Book.objects.all())
     form = BookCreateForm(auto_id=False)
     return render(
         request,
