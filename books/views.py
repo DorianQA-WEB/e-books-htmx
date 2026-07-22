@@ -49,6 +49,7 @@ def create_book(request):
     form = BookCreateForm(request.POST)
     if form.is_valid():
         book = form.save()
+        cache.delete('cached_book_list')
     return render(request,
                   'partial_book_detail.html',
                   {'book': book})
@@ -74,6 +75,8 @@ def update_book_details(request, pk):
     if request.method == 'POST':
         form = BookEditForm(request.POST, instance=book)
         if form.is_valid():
+            book.form.save()
+            cache.delete('cached_book_list')
             return render(request,
                           'partial_book_detail.html',
                           {'book': book}
@@ -99,6 +102,7 @@ def update_book_status(request, pk):
     book = get_object_or_404(Book, pk=pk)
     book.read = not book.read
     book.save()
+    cache.delete('cached_book_list')
     return render(request,
                   'partial_book_detail.html',
                   {'book': book}
@@ -143,6 +147,7 @@ def delete_book(request, pk):
     """
     book = get_object_or_404(Book, pk=pk)
     book.delete()
+    cache.delete('cached_book_list')
     return HttpResponse()
 
 
