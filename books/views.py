@@ -118,12 +118,11 @@ def book_list_sort(request, filter, direction):
         _('read'): 'read',
     }
     if filter in filter_dict:
-        if direction == _('descend'):
-            book_list = Book.objects.order_by('-' + filter_dict[filter])
-        else:
-            book_list = Book.objects.order_by(filter_dict[filter])
+        sort_str = ('', '-')[direction == _('descend')]+filter_dict[filter]
     else:
-        book_list = Book.objects.all()
+        sort_str = 'pk'
+    cache_key = 'cached_book_list_sorted_' + sort_str
+    book_list = cache.get_or_set(cache_key, Book.objects.order_by(sort_str))
     return render(
         request,
         'partial_book_list.html',
