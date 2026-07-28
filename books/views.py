@@ -7,6 +7,13 @@ from .models import Book
 from django.core.cache import cache
 
 
+def delete_cache_keys():
+    for col in ('pk', 'title', 'author', 'price', 'read'):
+        cache.delete('cached_book_list_sorted_' + col)
+        cache.delete('cached_book_list_sorted_-' + col)
+
+
+
 @require_http_methods(['GET'])
 def book_list(request):
     """
