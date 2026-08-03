@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.decorators.cache import cache_page
 
 from .views import (book_list, create_book,
                     update_book_details,
@@ -14,8 +15,7 @@ urlpatterns = [
          ),
     path('create_book/',
          create_book,
-         name='create_book'
-         ),
+         cache_page(600 )(create_book) ,
     path('update_book_details/<int:pk>/',
          update_book_details,
          name='update_book_details'
