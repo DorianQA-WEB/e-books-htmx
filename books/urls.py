@@ -15,7 +15,7 @@ urlpatterns = [
          ),
     path('create_book/',
          create_book,
-         cache_page(600 )(create_book) ,
+         cache_page(600 )(create_book)) ,
     path('update_book_details/<int:pk>/',
          update_book_details,
          name='update_book_details'
