@@ -24,5 +24,8 @@ services:
       - POSTGRES_PASSWORD=${SQL_PASSWORD}
       - POSTGRES_DB=${SQL_DB}
 
+  memcached:
+    image: memcached:1.6.21
+
 volumes:
   posgres_data:
