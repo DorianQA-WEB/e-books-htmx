@@ -17,9 +17,6 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
     env_file:
-    '''
-    env_file
-    '''
       - .env
 
     envirements:
