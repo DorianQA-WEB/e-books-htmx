@@ -51,6 +51,10 @@ class BookEditForm(BookCreateForm):
             attrs={"class": "form-control"}
         ),
     )
+    '''
+        price = forms.IntegerField(
+            required=False,
+            '''
     price = forms.IntegerField(
         required=False,
         widget=forms.NumberInput(
