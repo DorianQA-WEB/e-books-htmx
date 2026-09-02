@@ -1,0 +1,29 @@
+name: htmx-books-prod
+
+services:
+  web:
+    build: ./app
+    command: gunicorn django_htmx_books.wsgi:application --bind 0.0.0.0:8000
+
+    ports:
+      -127.0.0.1:8000:8000
+    env_file: .env.prod
+    depends_on:
+      - db
+      - memcached
+
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file: .env.prod
+    environment:
+      - POSTGRES_USER=${SQL_USER}
+      - POSTGRES_PASSWORD=${SQL_PASSWORD}
+      - POSTGRES_DB=${SQL_DATABASE}
+
+  memcached:
+    image: memcached:1.6.21
+
+volumes:
+  postgres_data:
