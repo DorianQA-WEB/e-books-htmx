@@ -3,7 +3,10 @@ from django import forms
 from .models import Book
 from django.utils.translation import gettext_lazy as _
 
-
+'''
+    форма для создания и редактирования книги
+    состоит из полей title, author, price
+'''
 class BookCreateForm(forms.ModelForm):
     title = forms.CharField(
         required=False,
