@@ -5,7 +5,8 @@ from django.utils.translation import gettext_lazy as _
 
 '''
     форма для создания и редактирования книги
-    состоит из полей title, author, price
+    состоит из полей title, author, price, 
+    примечание: price - целое число, неотрицательное
 '''
 class BookCreateForm(forms.ModelForm):
     title = forms.CharField(
