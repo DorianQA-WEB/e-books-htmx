@@ -22,6 +22,13 @@ class TestCreateBookForm:
             form = BookCreateForm(data=data)
             assert form.is_valid() == False
 
-        def test_number_of_books(self, title, author, price):
-            if len(Book.objects.all()) == 0:
+    def test_number_of_books(self, title, author, price):
+        if len(Book.objects.all()) == 0:
                 assert True
+
+
+    def test_number_of_books(self, title, author, price):
+        if len(Book.objects.all()) == 1:
+                assert True
+                if len(Book.objects.all()) > 1:
+                    assert False
