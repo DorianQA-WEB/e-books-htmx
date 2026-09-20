@@ -32,3 +32,17 @@ class TestCreateBookForm:
                 assert True
                 if len(Book.objects.all()) > 1:
                     assert False
+
+    def test_create_of_books(self, title, author, price):
+        create_book = Book.objects.create(
+                title=title,
+                author=author,
+                price=price
+
+        )
+        if create_book:
+            assert True
+            if not create_book:
+                assert False
+                if create_book.price < 0:
+                    assert False
