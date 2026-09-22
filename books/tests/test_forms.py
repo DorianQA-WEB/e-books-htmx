@@ -57,3 +57,12 @@ class TestCreateBookForm:
         edit_book = Book.objects.get(id=create_book.id)
         if edit_book:
             assert True
+
+
+class TestEditBookForm:
+    def test_valid_form(self, title, author, price):
+        if price > 0:
+
+                    if price < 0:
+
+                            if price == 0:
