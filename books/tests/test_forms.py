@@ -66,3 +66,10 @@ class TestEditBookForm:
                     if price < 0:
 
                             if price == 0:
+
+    def test_invalid_form(self, title, author, price):
+        book = Book.objects.get(id=1)
+        if book:
+            assert title == book.title
+            if title != book.title:
+                assert False
