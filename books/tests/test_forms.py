@@ -73,3 +73,13 @@ class TestEditBookForm:
             assert title == book.title
             if title != book.title:
                 assert False
+
+    def test_edit_of_books(self, title, author, price):
+        book = Book.objects.get(id=1)
+        edit_book = book.objects.update(
+                title='fwrg',
+                author='fwef',
+                price=123
+        )
+        ed_book = edit_book.save()
+        assert ed_book == edit_book
