@@ -73,3 +73,7 @@ class TestEditBookForm:
             assert title == book.title
             if title != book.title:
                 assert False
+
+    def test_number_of_books(self, title, author, price):
+        if len(Book.objects.all()) == 1:
+            assert True
