@@ -2,6 +2,10 @@ import pytest
 from django.utils import timezone
 from books.forms import BookCreateForm, BookEditForm
 
+
+'''
+    Test for create and edit books
+    '''
 class TestCreateBookForm:
     def test_valid_form(self, title, author, price):
         data = {
